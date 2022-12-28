@@ -42,7 +42,7 @@ jobs:
             ${{ runner.os }}-buildx-
 
       - name: Log into registry
-        run: echo "${{ secrets.PACKAGE_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+        run: docker login ghcr.io -u ${{ github.actor }} -p ${{ secrets.PACKAGE_TOKEN }}
 
       - name: Create Tags
         id: tags
